@@ -14,6 +14,7 @@ import {
     Shield
 } from 'lucide-react';
 
+
 const Careers = () => {
     const [selectedJob, setSelectedJob] = useState(null);
     const [isSubmitted, setIsSubmitted] = useState(false);
@@ -25,7 +26,8 @@ const Careers = () => {
         position: '',
         experience: '',
         availability: '',
-        coverLetter: ''
+        coverLetter: '',
+        resume: null,
     });
 
     const handleSubmit = (e) => {
@@ -35,7 +37,12 @@ const Careers = () => {
     };
 
     const handleChange = (e) => {
+        const file = e.target.files?.[0] || null;
         setFormData((p) => ({ ...p, [e.target.name]: e.target.value }));
+    };
+    const handleFileChange = (e) => {
+        const file = e.target.files?.[0] || null;
+        setFormData((p) => ({ ...p, resume: file }));
     };
 
     // Avantages — couleurs fixées (pas de classes dynamiques Tailwind)
@@ -55,15 +62,15 @@ const Careers = () => {
             fg: 'text-granby-violet'
         },
         {
-            title: 'Équipe bienveillante',
+            title: 'Gestion Humaine',
             description: 'Environnement de travail positif et collaboratif',
             icon: Users,
             bg: 'bg-granby-bg-blue',
             fg: 'text-granby-blue'
         },
         {
-            title: 'Assurances groupe',
-            description: 'Couverture médicale et dentaire complète',
+            title: 'Avantages sociaux compétitifs',
+            description: 'Cadeaux, repas gratuits et pauses rémunérées',
             icon: Shield,
             bg: 'bg-granby-bg-violet',
             fg: 'text-granby-violet'
@@ -76,7 +83,6 @@ const Careers = () => {
             title: "Infirmier(ère) auxiliaire",
             type: "Temps plein",
             department: "Soins infirmiers",
-            salary: "25$ - 30$ / heure",
             description:
                 "Nous recherchons un(e) infirmier(ère) auxiliaire passionné(e) pour rejoindre notre équipe de soins spécialisés en troubles neurocognitifs.",
             requirements: [
@@ -99,7 +105,6 @@ const Careers = () => {
             title: "Préposé(e) aux bénéficiaires",
             type: "Temps plein / Temps partiel",
             department: "Soins directs",
-            salary: "18$ - 22$ / heure",
             description:
                 "Rejoignez notre équipe dédiée au bien-être quotidien des résidents dans un environnement respectueux et bienveillant.",
             requirements: [
@@ -122,7 +127,6 @@ const Careers = () => {
             title: "Coordinateur(trice) des activités",
             type: "Temps plein",
             department: "Services récréatifs",
-            salary: "22$ - 27$ / heure",
             description:
                 "Créez et animez des programmes d'activités adaptés aux résidents avec troubles neurocognitifs pour maintenir leur qualité de vie.",
             requirements: [
@@ -145,7 +149,6 @@ const Careers = () => {
             title: "Travailleur(se) social(e)",
             type: "Temps partiel",
             department: "Services psychosociaux",
-            salary: "28$ - 35$ / heure",
             description:
                 "Accompagnez les résidents et leurs familles dans leur adaptation à la vie en résidence avec empathie et professionnalisme.",
             requirements: [
@@ -174,12 +177,14 @@ const Careers = () => {
     return (
         <div className="font-sans text-gray-900">
             {/* Hero */}
-            <section className="relative py-20 lg:py-32 overflow-hidden">
+            <section className="relative min-h-[60vh] flex items-center justify-center overflow-hidden">
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                        backgroundImage:
-                            "linear-gradient(135deg, rgba(166,204,230,0.9), rgba(186,174,217,0.9)), url('https://images.unsplash.com/photo-1612636321938-2a60d4febfae')"
+                        backgroundImage: `
+      linear-gradient(135deg, rgba(166, 204, 230, 0.9), rgba(186, 174, 217, 0.9)),
+      url('/fonts/Background2.png')
+    `,
                     }}
                     aria-hidden="true"
                 />
@@ -194,7 +199,7 @@ const Careers = () => {
                             Carrières
                         </h1>
                         <p className="text-xl lg:text-2xl text-white/90 leading-relaxed">
-                            Rejoignez une équipe passionnée qui fait la différence chaque jour. Ensemble, créons un
+                            Ensemble, créons un
                             environnement de soins exceptionnel.
                         </p>
                     </motion.div>
@@ -296,7 +301,7 @@ const Careers = () => {
                         className="text-center mb-16"
                     >
                         <h2 className="text-4xl lg:text-5xl font-athelas font-bold mb-6">
-                            Postes disponibles
+                            Postes
                         </h2>
                         <p className="text-xl text-gray-600">
                             Explorez nos opportunités et trouvez le poste qui vous correspond.
@@ -328,10 +333,7 @@ const Careers = () => {
                                                     <Stethoscope size={16} />
                                                     <span>{p.department}</span>
                                                 </div>
-                                                <div className="flex items-center space-x-2">
-                                                    <DollarSign size={16} />
-                                                    <span>{p.salary}</span>
-                                                </div>
+
                                                 <div className="flex items-center space-x-2">
                                                     <MapPin size={16} />
                                                     <span>Granby, QC</span>
@@ -515,6 +517,37 @@ const Careers = () => {
                                         </select>
                                     </div>
                                 </div>
+                                {/* Joindre un CV */}
+                                <div>
+                                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                                        Joindre un CV (PDF, DOC, DOCX)
+                                    </label>
+
+                                    <input
+                                        type="file"
+                                        id="resume"
+                                        accept=".pdf,.doc,.docx"
+                                        onChange={handleFileChange}
+                                        className="hidden"
+                                    />
+
+                                    <label
+                                        htmlFor="resume"
+                                        className="inline-flex items-center justify-center px-6 py-3 
+               bg-granby-violet text-white font-medium rounded-lg 
+               cursor-pointer hover:brightness-95 transition"
+                                    >
+                                        Choisir un fichier
+                                    </label>
+
+                                    {formData.resume && (
+                                        <p className="mt-2 text-sm text-gray-600">
+                                            Fichier sélectionné : <span className="font-medium">{formData.resume.name}</span>
+                                        </p>
+                                    )}
+                                </div>
+
+
 
                                 <div>
                                     <label className="block text-sm font-semibold text-gray-700 mb-2">Lettre de motivation</label>

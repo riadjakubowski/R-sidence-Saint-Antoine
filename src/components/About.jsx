@@ -1,4 +1,7 @@
 import React from 'react';
+import Entree1 from '../assets/Entree1.png';
+import Entree2 from '../assets/Entree2.png';
+import Entree3 from '../assets/Entree3.png';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -7,13 +10,16 @@ const About = () => {
             {/* HERO */}
             <section className="relative flex items-center min-h-[60vh] overflow-hidden">
                 <div
-                    className="absolute inset-0 bg-cover bg-center"
+                    className="absolute inset-0 bg-no-repeat"
                     style={{
-                        backgroundImage:
-                            "linear-gradient(135deg, rgba(166, 204, 230, 0.88), rgba(186, 174, 217, 0.88)), url('https://images.unsplash.com/photo-1582719478250-c89cae4dc85b')",
+                        backgroundImage: `linear-gradient(135deg, rgba(166, 204, 230, 0.88), rgba(186, 174, 217, 0.88)), url(${Entree2})`,
+                        // ↓ décale le focus vers la gauche (panneau) et zoome un peu
+                        backgroundPosition: '50% center', // 0% = bord gauche, 50% = centré
+                        backgroundSize: '100% auto',      // zoom ~1.4x pour remplir avec le panneau visible
                     }}
                     aria-hidden="true"
-                />
+                ></div>
+
                 <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -43,7 +49,7 @@ const About = () => {
                         transition={{ duration: 0.8 }}
                     >
                         <h2 className="text-4xl font-athelas font-bold text-gray-900 mb-6">
-                            Notre Histoire
+                            Notre Mission
                         </h2>
                         <p className="text-lg text-gray-700 mb-4">
                             Offrir plus qu'un lieu de soins, un lieu de vie. Là où chaque regard compte, où chaque sourire est une main tendue vers la sérénité.
@@ -66,10 +72,14 @@ const About = () => {
                         className="relative"
                     >
                         <img
-                            src="https://images.unsplash.com/photo-1582719478250-c89cae4dc85b"
-                            alt="Résidence accueillante et lumineuse avec espaces conviviaux"
-                            className="rounded-2xl shadow-granby-lg object-cover w-full h-96"
+                            src="/logoRSA_lotus.png"
+                            alt="Main Résidence Saint-Antoine"
+                            className="w-80 h-80 object-cover object-bottom mx-auto"
                         />
+
+
+
+
                     </motion.div>
                 </div>
             </section>
@@ -137,13 +147,13 @@ const About = () => {
                     <div className="grid md:grid-cols-3 gap-8">
                         {[
                             {
-                                name: "Sophie Tremblay",
-                                role: "Directrice générale",
+                                name: "Andrzej Jakubowski",
+                                role: "Directeur générale",
                                 img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e"
                             },
                             {
-                                name: "Marc Dubois",
-                                role: "Infirmier en chef",
+                                name: "Marilyne Marilyne",
+                                role: "Infirmière en chef",
                                 img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f"
                             },
                             {

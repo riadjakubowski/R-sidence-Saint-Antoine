@@ -102,7 +102,7 @@ const Home = () => {
               <h1 className="text-5xl lg:text-6xl font-athelas font-bold text-white mb-6 leading-tight">
                 Un Foyer de <br />
                 <span className="block bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-200">
-                  Sérénité et Soin
+                  Sérénité et de Soins
                 </span>
               </h1>
 
@@ -122,14 +122,14 @@ const Home = () => {
                 </Link>
 
                 <a
-                  href="tel:14505550123"
+                  href="tel:14503786374"
                   className="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white text-white text-base font-medium
                              hover:bg-white hover:text-granby-blue-dark transition-all duration-200 outline-none
                              focus-visible:ring-2 focus-visible:ring-white/70 focus-visible:ring-offset-2"
                   aria-label="Appeler la résidence"
                 >
                   <Phone size={20} className="mr-2" />
-                  (450) 555-0123
+                  (450) 378-6374
                 </a>
               </div>
             </motion.div>
@@ -229,10 +229,12 @@ const Home = () => {
               className="relative"
             >
               <img
-                src="https://images.unsplash.com/photo-1536064479547-7ee40b74b807"
-                alt="Professionnel de santé souriant tenant la main d’un résident"
+                src="/Chambre1.png"
+                alt="Main Résidence Saint-Antoine"
                 className="rounded-2xl shadow-granby-lg w-full h-96 object-cover"
+
               />
+
             </motion.div>
           </div>
         </div>
@@ -266,7 +268,7 @@ const Home = () => {
             </motion.div>
 
             {/* Flèches */}
-            <div className="absolute -left-6 sm:-left-10 top-1/2 -translate-y-1/2">
+            <div className="absolute -left-16 sm:-left-20 top-1/2 -translate-y-1/2">
               <button
                 onClick={precedent}
                 className="p-2 rounded-lg hover:bg-white/60 transition outline-none
@@ -277,7 +279,7 @@ const Home = () => {
               </button>
             </div>
 
-            <div className="absolute -right-6 sm:-right-10 top-1/2 -translate-y-1/2">
+            <div className="absolute -right-16 sm:-right-20 top-1/2 -translate-y-1/2">
               <button
                 onClick={suivant}
                 className="p-2 rounded-lg hover:bg-white/60 transition outline-none

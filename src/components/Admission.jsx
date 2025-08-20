@@ -145,11 +145,11 @@ const Admission = () => {
         {
             icon: Phone,
             title: 'Téléphone',
-            details: '(450) 555-0123',
+            details: '(450) 378-6374',
             description: 'Disponible 24 h / 7',
             textClass: 'text-granby-blue-light',
             bgClass: 'bg-granby-bg-blue',
-            href: 'tel:14505550123',
+            href: 'tel:14503786374',
             aria: 'Appeler la résidence',
         },
         {
@@ -165,7 +165,7 @@ const Admission = () => {
         {
             icon: MapPin,
             title: 'Adresse',
-            details: '123 Rue Principale, Granby',
+            details: '110 Rue Saint-Antoine S, Granby',
             description: 'Stationnement gratuit',
             textClass: 'text-granby-blue-light',
             bgClass: 'bg-granby-bg-blue',
@@ -215,11 +215,15 @@ const Admission = () => {
                 <div
                     className="absolute inset-0 bg-cover bg-center"
                     style={{
-                        backgroundImage:
-                            "linear-gradient(135deg, rgba(166,204,230,0.9), rgba(186,174,217,0.9)), url('https://images.pexels.com/photos/8728559/pexels-photo-8728559.jpeg')",
+                        backgroundImage: `
+      linear-gradient(135deg, rgba(166, 204, 230, 0.9), rgba(186, 174, 217, 0.9)),
+      url('/fonts/Background1.png')
+    `,
                     }}
                     aria-hidden="true"
                 />
+
+
                 <div className="relative z-10 text-white text-center space-y-6 px-4">
                     <motion.h1
                         initial={{ opacity: 0, y: 30 }}
@@ -236,7 +240,7 @@ const Admission = () => {
                         transition={{ delay: 0.3, duration: 0.8 }}
                         className="text-xl max-w-3xl mx-auto text-white/90"
                     >
-                        Débutez votre demande&nbsp;; notre équipe vous rappellera rapidement.
+                        Débutez votre demande et notre équipe vous rappellera rapidement.
                     </motion.p>
                 </div>
             </section>
@@ -383,7 +387,7 @@ const Admission = () => {
                                     {[
                                         { label: 'Nom *', name: 'contactLastName', placeholder: 'Nom' },
                                         { label: 'Prénom *', name: 'contactFirstName', placeholder: 'Prénom' },
-                                        { label: 'Téléphone *', name: 'contactPhone', placeholder: '(450) 555-0123', type: 'tel' },
+                                        { label: 'Téléphone *', name: 'contactPhone', placeholder: '(450) 378-6374', type: 'tel' },
                                         { label: 'Courriel *', name: 'contactEmail', placeholder: 'contact@email.com', type: 'email' },
                                     ].map((f) => (
                                         <div key={f.name}>

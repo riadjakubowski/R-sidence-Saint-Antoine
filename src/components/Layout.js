@@ -155,17 +155,13 @@ const Layout = ({ children }) => {
                 <div className="flex items-start space-x-3">
                   <MapPin size={20} className="text-black mt-1" />
                   <div>
-                    <p>123 Rue Principale</p>
-                    <p>Granby, QC J2G 1A1</p>
+                    <p>110 Rue Saint-Antoine S</p>
+                    <p>Granby, QC J2G 3W1</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <Phone size={20} className="text-black" />
-                  <p>(450) 555-0123</p>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <Clock size={20} className="text-black" />
-                  <p>24h/7 Surveillance</p>
+                  <p>(450) 378-6374</p>
                 </div>
               </div>
             </div>
