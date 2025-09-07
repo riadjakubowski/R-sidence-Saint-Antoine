@@ -175,7 +175,7 @@ const Admission = () => {
         {
             icon: Clock,
             title: 'Heures de visite',
-            details: '7 jours / 7 – 9 h → 17 h',
+            details: '7 jours / 7 – 8h → 1 h',
             description: 'Sur rendez-vous',
             textClass: 'text-granby-violet-light',
             bgClass: 'bg-granby-bg-violet',
@@ -315,7 +315,7 @@ const Admission = () => {
                             <div>
                                 <h3 className="flex items-center text-2xl md:text-3xl font-athelas font-bold mb-8">
                                     <User className="mr-3 text-granby-blue-light" size={28} aria-hidden="true" />
-                                    Informations personnelles
+                                    Informations personnelles - Résident Potentiel
                                 </h3>
 
                                 <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

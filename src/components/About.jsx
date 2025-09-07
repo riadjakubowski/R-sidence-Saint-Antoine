@@ -2,6 +2,12 @@ import React from 'react';
 import Entree1 from '../assets/Entree1.png';
 import Entree2 from '../assets/Entree2.png';
 import Entree3 from '../assets/Entree3.png';
+import Andrzej from '../assets/Andrzej.png';
+import Marilyn from '../assets/Marilyn.png';
+import Sylvine from '../assets/Sylvine.png';
+import Kim from '../assets/Kim.png';
+import Marc from '../assets/Marc.png';
+import Josee from '../assets/Josee.png';
 import { motion } from 'framer-motion';
 
 const About = () => {
@@ -13,9 +19,9 @@ const About = () => {
                     className="absolute inset-0 bg-no-repeat"
                     style={{
                         backgroundImage: `linear-gradient(135deg, rgba(166, 204, 230, 0.88), rgba(186, 174, 217, 0.88)), url(${Entree2})`,
-                        // ↓ décale le focus vers la gauche (panneau) et zoome un peu
-                        backgroundPosition: '50% center', // 0% = bord gauche, 50% = centré
-                        backgroundSize: '100% auto',      // zoom ~1.4x pour remplir avec le panneau visible
+                        backgroundSize: 'cover',          // ✅ remplissage responsive
+                        backgroundPosition: 'center',     // ✅ centrage par défaut
+                        backgroundRepeat: 'no-repeat'
                     }}
                     aria-hidden="true"
                 ></div>
@@ -128,6 +134,72 @@ const About = () => {
                     </div>
                 </div>
             </section>
+            {/* LOISIRS (Hebdomadaire bleu clair + Mensuel violet pâle) */}
+            <section className="py-20 bg-white">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-12"
+                    >
+                        <h2 className="text-4xl font-athelas font-bold text-gray-900 mb-4">
+                            Nos Loisirs
+                        </h2>
+                        <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+                            Un programme chaleureux et stimulant, pensé pour nourrir la créativité,
+                            l’esprit et le lien social.
+                        </p>
+                    </motion.div>
+
+                    {(() => {
+                        const items = [
+                            // Hebdomadaire
+                            { title: "Ateliers créatifs", cat: "Hebdomadaire" },
+                            { title: "Ateliers cognitifs & psycho-moteurs", cat: "Hebdomadaire" },
+                            { title: "Activités Bingo", cat: "Hebdomadaire" },
+                            { title: "Activités ludiques", cat: "Hebdomadaire" },
+                            { title: "Zoothérapie appliquée", cat: "Hebdomadaire" },
+                            { title: "Musique et danse", cat: "Hebdomadaire" },
+                            { title: "Ateliers cognitifs & dextérité", cat: "Hebdomadaire" },
+                            // Mensuel
+                            { title: "Services religieux", cat: "Mensuel" },
+                            {
+                                title: "Évènements thématiques en coordination avec la cuisine",
+                                cat: "Mensuel",
+                            },
+                        ];
+
+                        // Couleurs de carte selon la catégorie
+                        const cardClass = (cat) =>
+                            cat === "Hebdomadaire"
+                                ? "bg-granby-bg-blue text-gray-900" // bleu clair
+                                : "bg-granby-violet/20 text-gray-900"; // violet pâle
+
+                        return (
+                            <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
+                                {items.map((it, i) => (
+                                    <motion.div
+                                        key={i}
+                                        initial={{ opacity: 0, y: 20 }}
+                                        whileInView={{ opacity: 1, y: 0 }}
+                                        transition={{ duration: 0.5, delay: i * 0.04 }}
+                                        className={`w-full max-w-xl ${cardClass(
+                                            it.cat
+                                        )} rounded-2xl shadow-granby hover:shadow-granby-lg transition p-8 text-center`}
+                                    >
+                                        <h3 className="text-xl font-athelas mb-2">{it.title}</h3>
+                                        <p className="text-sm text-gray-600">
+                                            ({it.cat})
+                                        </p>
+                                    </motion.div>
+                                ))}
+                            </div>
+                        );
+                    })()}
+                </div>
+            </section>
+
 
             {/* ÉQUIPE */}
             <section className="py-20 bg-white">
@@ -136,11 +208,11 @@ const About = () => {
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="text-4xl font-athelas font-bold text-gray-900 mb-6"
+                        className="text-4xl lg:text-5xl font-athelas font-bold text-gray-900 mb-6"
                     >
                         Notre Équipe
                     </motion.h2>
-                    <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-12">
+                    <p className="text-lg text-gray-700 max-w-3xl mx-auto mb-12 text-center">
                         Des professionnels passionnés et dévoués, formés pour offrir un accompagnement humain et personnalisé à chaque résident.
                     </p>
 
@@ -149,18 +221,34 @@ const About = () => {
                             {
                                 name: "Andrzej Jakubowski",
                                 role: "Directeur générale",
-                                img: "https://images.unsplash.com/photo-1607746882042-944635dfe10e"
+                                img: Andrzej
+                            },
+
+                            {
+                                name: "Marilyne Milaenen",
+                                role: "Directrice des soins infirmiers et opérations",
+                                img: Marilyn
                             },
                             {
-                                name: "Marilyne Marilyne",
-                                role: "Infirmière en chef",
-                                img: "https://images.unsplash.com/photo-1594824476967-48c8b964273f"
+                                name: "Sylvine Daigle",
+                                role: "Infirmière Auxiliaire",
+                                img: Sylvine
                             },
                             {
-                                name: "Isabelle Lavoie",
-                                role: "Coordinatrice des activités",
-                                img: "https://images.unsplash.com/photo-1544005313-94ddf0286df2"
-                            }
+                                name: "Kim Milaenen Fréchette",
+                                role: "Coordinatrice des loisirs",
+                                img: Kim
+                            },
+                            {
+                                name: "Marc Fréchette",
+                                role: "Responsable Maintenance",
+                                img: Marc
+                            },
+                            {
+                                name: "Josée Lavigne",
+                                role: "Responsable Cusinie et Chef Cusinière",
+                                img: Josee
+                            },
                         ].map((member, i) => (
                             <motion.div
                                 key={i}
@@ -172,7 +260,7 @@ const About = () => {
                                 <img
                                     src={member.img}
                                     alt={`${member.name}, ${member.role}`}
-                                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover"
+                                    className="w-32 h-32 rounded-full mx-auto mb-4 object-cover object-top"
                                 />
                                 <h3 className="text-xl font-athelas text-gray-900">{member.name}</h3>
                                 <p className="text-granby-blue-dark">{member.role}</p>
@@ -181,6 +269,8 @@ const About = () => {
                     </div>
                 </div>
             </section>
+
+
         </div>
     );
 };

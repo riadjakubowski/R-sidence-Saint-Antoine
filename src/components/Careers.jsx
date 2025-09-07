@@ -80,28 +80,6 @@ const Careers = () => {
     const positions = [
         {
             id: 1,
-            title: "Infirmier(ère) auxiliaire",
-            type: "Temps plein",
-            department: "Soins infirmiers",
-            description:
-                "Nous recherchons un(e) infirmier(ère) auxiliaire passionné(e) pour rejoindre notre équipe de soins spécialisés en troubles neurocognitifs.",
-            requirements: [
-                "Diplôme d'infirmier(ère) auxiliaire",
-                "Permis de pratique valide",
-                "Expérience en gériatrie (atout)",
-                "Formation en troubles neurocognitifs (atout)",
-                "Excellentes compétences relationnelles"
-            ],
-            responsibilities: [
-                "Administration de médicaments",
-                "Surveillance de l'état de santé des résidents",
-                "Assistance aux activités de la vie quotidienne",
-                "Documentation des soins prodigués",
-                "Collaboration avec l'équipe multidisciplinaire"
-            ]
-        },
-        {
-            id: 2,
             title: "Préposé(e) aux bénéficiaires",
             type: "Temps plein / Temps partiel",
             department: "Soins directs",
@@ -123,56 +101,54 @@ const Careers = () => {
             ]
         },
         {
-            id: 3,
-            title: "Coordinateur(trice) des activités",
-            type: "Temps plein",
-            department: "Services récréatifs",
+            id: 2,
+            title: "Aide-Cuisine / Plongeur",
+            type: "Temps plein / Temps partiel",
+            department: "Service alimentaire",
             description:
-                "Créez et animez des programmes d'activités adaptés aux résidents avec troubles neurocognitifs pour maintenir leur qualité de vie.",
+                "Soutenez l’équipe de cuisine en veillant à la propreté et à l’organisation, tout en contribuant à la préparation des repas destinés aux résidents.",
             requirements: [
-                "Formation en loisirs thérapeutiques ou équivalent",
-                "Expérience en animation pour personnes âgées",
-                "Créativité et dynamisme",
-                "Connaissance des troubles neurocognitifs",
-                "Permis de conduire valide"
+                "Expérience en cuisine ou plonge (atout, mais non obligatoire)",
+                "Bonne condition physique et rapidité d’exécution",
+                "Respect strict des normes d’hygiène et de salubrité",
+                "Capacité à travailler en équipe et sous pression",
+                "Ponctualité et sens des responsabilités"
             ],
             responsibilities: [
-                "Planification d'activités adaptées",
-                "Animation de groupes",
-                "Évaluation des besoins récréatifs",
-                "Coordination avec les familles",
-                "Gestion du matériel d'activités"
+                "Nettoyage et désinfection de la vaisselle, des ustensiles et du matériel de cuisine",
+                "Aide à la préparation de repas simples (épluchage, découpe, portions)",
+                "Maintien de la propreté des espaces de travail",
+                "Gestion et rangement de la vaisselle et du matériel",
+                "Soutien aux cuisiniers et respect des consignes de sécurité alimentaire"
             ]
         },
-        {
-            id: 4,
-            title: "Travailleur(se) social(e)",
-            type: "Temps partiel",
-            department: "Services psychosociaux",
-            description:
-                "Accompagnez les résidents et leurs familles dans leur adaptation à la vie en résidence avec empathie et professionnalisme.",
-            requirements: [
-                "Baccalauréat en travail social",
-                "Membre de l'OTSTCFQ",
-                "Expérience en gérontologie",
-                "Excellente écoute active",
-                "Bilinguisme (français/anglais)"
-            ],
-            responsibilities: [
-                "Évaluation psychosociale des résidents",
-                "Soutien aux familles",
-                "Intervention de crise",
-                "Planification de congé",
-                "Liaison avec services externes"
-            ]
-        }
+
+
     ];
 
     const companyValues = [
-        { title: 'Compassion', description: 'Nous traitons chaque résident comme un membre de notre famille', icon: Heart },
-        { title: 'Excellence', description: 'Nous visons constamment l’amélioration de nos soins et services', icon: Award },
-        { title: 'Respect', description: 'La dignité de chaque personne guide nos actions quotidiennes', icon: Users }
+        {
+            title: 'Performance',
+            description: 'Nous cherchons toujours à dépasser les attentes en offrant un service de qualité et en visant l’excellence dans chaque tâche.',
+            icon: Award
+        },
+        {
+            title: 'Assiduité',
+            description: 'La constance et la rigueur sont au cœur de notre engagement, car chaque détail compte dans le bien-être des résidents.',
+            icon: CheckCircle
+        },
+        {
+            title: 'Esprit d\'Équipe',
+            description: 'Nous croyons que la collaboration et le soutien mutuel sont essentiels pour bâtir un environnement de travail harmonieux et efficace.',
+            icon: Users
+        },
+        {
+            title: 'Approche Adaptée',
+            description: 'Chaque résident est unique : nous adaptons nos soins et notre accompagnement à ses besoins spécifiques, avec respect et bienveillance.',
+            icon: Heart
+        }
     ];
+
 
     return (
         <div className="font-sans text-gray-900">
@@ -223,7 +199,7 @@ const Careers = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch">
                         {benefits.map((b, i) => {
                             const Icon = b.icon;
                             return (
@@ -265,7 +241,7 @@ const Careers = () => {
                         </p>
                     </motion.div>
 
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 gap-10 lg:gap-12 items-stretch">
                         {companyValues.map((v, i) => {
                             const Icon = v.icon;
                             return (
@@ -274,7 +250,7 @@ const Careers = () => {
                                     initial={{ opacity: 0, y: 30 }}
                                     whileInView={{ opacity: 1, y: 0 }}
                                     transition={{ duration: 0.6, delay: i * 0.1 }}
-                                    className="bg-white rounded-2xl p-8 shadow-granby hover:shadow-granby-lg transition-all duration-300 text-center"
+                                    className="bg-white rounded-2xl p-10 shadow-granby hover:shadow-granby-lg transition-all duration-300 text-center h-full flex flex-col"
                                 >
                                     <div className="w-16 h-16 rounded-xl flex items-center justify-center mx-auto mb-6 bg-granby-bg-blue">
                                         <Icon size={32} className="text-granby-blue-light" />
@@ -290,6 +266,7 @@ const Careers = () => {
                     </div>
                 </div>
             </section>
+
 
             {/* Open positions */}
             <section className="py-20 bg-white">
